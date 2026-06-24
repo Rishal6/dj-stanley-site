@@ -754,3 +754,226 @@ img {
         text-align: center;
     }
 }
+
+/* ===== MIXES SECTION ===== */
+.mixes { background: #050508; }
+
+.mixes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.mix-card {
+    background: #111118;
+    border: 1px solid #1a1a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.mix-card:hover {
+    border-color: #333;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.mix-card.playing {
+    border-color: #fff;
+    box-shadow: 0 0 30px rgba(255,255,255,0.05);
+}
+
+.mix-cover {
+    position: relative;
+    height: 120px;
+    background: linear-gradient(135deg, #0a0a14, #1a1a2e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mix-play-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.mix-play-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.1);
+}
+
+.mix-card.playing .mix-play-btn {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.mix-eq {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 24px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.mix-card.playing .mix-eq {
+    opacity: 1;
+}
+
+.mix-eq span {
+    width: 3px;
+    background: #fff;
+    border-radius: 2px;
+    animation: eqBounce 0.8s ease-in-out infinite alternate;
+}
+
+.mix-eq span:nth-child(1) { height: 40%; animation-delay: 0s; }
+.mix-eq span:nth-child(2) { height: 70%; animation-delay: 0.1s; }
+.mix-eq span:nth-child(3) { height: 50%; animation-delay: 0.2s; }
+.mix-eq span:nth-child(4) { height: 90%; animation-delay: 0.3s; }
+.mix-eq span:nth-child(5) { height: 60%; animation-delay: 0.4s; }
+
+@keyframes eqBounce {
+    from { transform: scaleY(0.3); }
+    to { transform: scaleY(1); }
+}
+
+.mix-info {
+    padding: 1.25rem;
+}
+
+.mix-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    margin-bottom: 0.5rem;
+}
+
+.mix-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.mix-genre {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #aaa;
+}
+
+.mix-duration {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.mix-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mix-progress-bar {
+    flex: 1;
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.mix-progress-fill {
+    height: 100%;
+    background: #fff;
+    width: 0%;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.mix-time {
+    font-size: 0.7rem;
+    color: #666;
+    min-width: 32px;
+}
+
+@media (max-width: 768px) {
+    .mixes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== MIX DOWNLOAD BUTTON ===== */
+.mix-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: #aaa;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.mix-download-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* ===== CONTACT DETAILS ===== */
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.contact-item:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: #fff;
+    color: #fff;
+}
